@@ -110,10 +110,6 @@ h3 {
   align-items: center;
 }
 .error {
-  color: red;
-}
-
-button {
-  padding: 0.5rem;
+  color: hsl(0,60%,50%);
 }
 </style>

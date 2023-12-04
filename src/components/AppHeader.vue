@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { useStore } from "./../store/index";
 
 const store = useStore();
-const isLoggedIn = computed(() => store.state.isLoggedIn);
+const isLoggedIn = computed<boolean>(() => store.state.isLoggedIn);
 
 function logout():void {
   store.dispatch("setLoggedIn", false);
