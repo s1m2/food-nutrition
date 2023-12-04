@@ -18,7 +18,7 @@ const store = useStore();
 const loading = computed<boolean>(() => store.state.loading);
 const errorMessage = computed<string>(() => store.state.errorMessage);
 const noProductsFound = computed<boolean>(() => store.state.noProductsFound);
-const foods = computed<object>(() => store.state.foods);
+const foods = computed(() => store.state.foods);
 
 const defaultFood = ref("chicken");
 const typing = ref(false);

@@ -2,14 +2,13 @@
 import { computed, onMounted } from "vue";
 import { useStore } from "./../store/index";
 import { useRoute, useRouter } from "vue-router";
-import { Food } from "./../types";
 
 const route = useRoute();
 const router = useRouter();
 const store = useStore();
 
 const loading = computed<boolean>(() => store.state.loading);
-const food = computed<Food>(() => store.state.food);
+const food = computed(() => store.state.food);
 const upc = computed<string>(() => Object.keys(food.value?.products)[0]);
 
 function lifestyleCompatibility(lifestyle: string): string {
