@@ -40,7 +40,7 @@ function lengthValidator(
 function validateForm() {
   state.isValid =
     Object.keys(errorMessages).every((key) => errorMessages[key] === "") &&
-    Object.keys(state).every((key) => state[key] !== "");
+    Object.keys(state).every((key) => state[key as keyof typeof state] !== "");
 }
 
 watch(
@@ -59,11 +59,11 @@ watch(
 </script>
 
 <template>
-  <AppNotification v-if="showNotification">
-    <p>Login Successful</p>
-  </AppNotification>
-  
   <div class="card">
+    <AppNotification v-if="showNotification">
+      <p>Login Successful</p>
+    </AppNotification>
+
     <h3>Login</h3>
     <div class="form-input">
       <label for="username">Username</label>
@@ -110,6 +110,6 @@ h3 {
   align-items: center;
 }
 .error {
-  color: hsl(0,60%,50%);
+  color: hsl(0, 60%, 50%);
 }
 </style>

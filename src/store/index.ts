@@ -1,4 +1,5 @@
 import { InjectionKey } from 'vue';
+// @ts-ignore
 import { createStore, useStore as baseUseStore, Store } from 'vuex';
 import { getFoodProducts, getFoodProduct } from '../lib/api';
 
@@ -47,7 +48,7 @@ export const store = createStore<State>({
   },
 
   actions: {
-    async setFoods({ commit }, searchParam: string): Promise<void> {
+    async setFoods({ commit }: any, searchParam: string): Promise<void> {
       try {
         commit('SET_LOADING', true);
         const response = await getFoodProducts(searchParam);
@@ -77,7 +78,7 @@ export const store = createStore<State>({
       }
     },
 
-    async setFood({ commit }, id: number): Promise<void> {
+    async setFood({ commit }: any, id: number): Promise<void> {
       try {
         commit('SET_LOADING', true);
         const response = await getFoodProduct(id);
@@ -90,7 +91,7 @@ export const store = createStore<State>({
       }
     },
 
-    setLoggedIn({ commit }, isLogged: boolean) {
+    setLoggedIn({ commit }: any, isLogged: boolean) {
       commit('SET_LOGGEDIN', isLogged);
     }
   }
